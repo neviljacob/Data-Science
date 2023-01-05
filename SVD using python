@@ -1,0 +1,8 @@
+from numpy import array
+from scipy.linalg import svd
+A = array([[1, 2], [3, 4], [5, 6]])
+print(A)
+U, s, VT = svd(A)
+print("U: %s" %U)
+print("s: %s" %s)
+print("VT: %s" %VT)
