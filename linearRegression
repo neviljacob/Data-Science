@@ -1,0 +1,24 @@
+from sklearn.model_selection import train_test_split
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3)
+
+#build our model
+from sklearn.linear_model import LinearRegression
+reg=linear_model.LinearRegression()
+reg.fit(X_train,y_train)
+pred=reg.predict(X_test)
+Coef=reg.coef_ #the co-efficent for this model
+
+print(Coef) #o/p: 741.83 which means 741.83*X=Y
+print(r2_score(y_test,pred))
+print(mean_squared_error(y_test,pred))
+
+# Plot outputs - based on y_test and pred
+plt.scatter(pred,y_test,color='green')
+plt.title('Predicted data vs Real data')
+plt.xlabel('pred')
+plt.ylabel('y_test')
+plt.show()
+
+plt.scatter(X_test,y_test,color='green')
+plt.plot(X_test,pred,color='blue',linewidth=2)
+plt.show()
